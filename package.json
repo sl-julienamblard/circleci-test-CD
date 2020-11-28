@@ -1,0 +1,15 @@
+{
+	"name": "circleci-test-CD",
+	"version": "1.0.0",
+	"main": "index.js",
+	"repository": "https://github.com/sl-julienamblard/circleci-test-CD.git",
+	"author": "Oory <julien.amblard@seloger.com>",
+	"license": "MIT",
+	"scripts": {
+		"build": "tsc index.ts"
+	},
+	"dependencies": {
+		"ts-node": "^9.0.0",
+		"typescript": "^4.1.2"
+	}
+}
