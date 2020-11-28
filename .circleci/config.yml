@@ -1,0 +1,32 @@
+# @format
+
+version: 2.1
+orbs:
+    node: circleci/node@3.0.0
+
+aliases:
+    - &defaults
+      working_directory: ~/repos
+      docker:
+          - image: circleci/node:12.5.0
+
+jobs:
+    build:
+        <<: *defaults
+        steps:
+            - checkout
+            - restore_cache:
+                  keys:
+                      - v1-dependencies-{{ checksum "package.json" }}
+                      - v1-dependencies-
+            - run:
+                  name: Install dependencies
+                  command: yarn
+            - run:
+                  name: Run build
+                  command: yarn build
+
+workflows:
+    node-tests:
+        jobs:
+            - build
